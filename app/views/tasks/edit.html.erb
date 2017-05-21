@@ -1,5 +1,14 @@
 <h3>Update Task</h3>
 <div class="row">
+  <% if @task.errors.any? %>
+    <%= pluralize(@task.errors.count, "error") %>
+    prohibited this task from being updated.
+    <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form_for @task do |f| %>
     <%= f.label "Description" %>
     <%= f.text_field :description %>

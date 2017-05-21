@@ -15,4 +15,13 @@ RSpec.feature "Updating tasks" do
     expect(page).to have_content("Updated Task Description")
     expect(page.current_path).to eq(root_path)
   end
+
+  scenario "a user fails to update task" do
+    visit "/"
+    click_link("edit_task_#{@task.id}")
+    fill_in "task_description", with: ""
+    click_button "Update Task"
+    expect(page).to have_content("Task not updated")
+    expect(page.current_path).to eq(task_path(@task))
+  end
 end

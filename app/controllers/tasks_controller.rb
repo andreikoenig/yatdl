@@ -20,6 +20,8 @@ class TasksController < ApplicationController
       flash[:success] = "Task updated"
       redirect_to root_path
     else
+      flash.now[:danger] = "Task not updated"
+      render :edit
     end
   end
 
