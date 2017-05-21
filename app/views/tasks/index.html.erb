@@ -2,13 +2,16 @@
 
 <div class="row">
   <%= form_for @task do |f| %>
+    <%= f.label "Description" %>
     <%= f.text_field :description %>
+    <%= f.label "Quadrant" %>
+    <%= f.select :quadrant, (1..4) %>
     <%= f.submit "Create Task" %>
   <% end %>
 </div>
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.description %></li>
+    <li><%= task.description %>(Q<%= task.quadrant %>)</li>
   <% end %>
 </ul>
