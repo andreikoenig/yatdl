@@ -10,6 +10,19 @@ class TasksController < ApplicationController
     redirect_to root_url
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      flash[:success] = "Task updated"
+      redirect_to root_path
+    else
+    end
+  end
+
   private
 
     def task_params

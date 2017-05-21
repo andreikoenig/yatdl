@@ -1,0 +1,10 @@
+<h3>Update Task</h3>
+<div class="row">
+  <%= form_for @task do |f| %>
+    <%= f.label "Description" %>
+    <%= f.text_field :description %>
+    <%= f.label "Quadrant" %>
+    <%= f.select :quadrant, (1..4) %>
+    <%= f.submit "Update Task" %>
+  <% end %>
+</div>

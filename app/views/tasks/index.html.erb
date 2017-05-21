@@ -12,6 +12,6 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.description %>(Q<%= task.quadrant %>)</li>
+    <li><%= task.description %>(Q<%= task.quadrant %>) <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %></li>
   <% end %>
 </ul>
