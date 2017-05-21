@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :find_task, only: [:edit, :update, :complete, :destroy]
   def index
     @task = Task.new
     @uncompleted_tasks = Task.where(time_completed: nil)
@@ -11,11 +12,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update(task_params)
       flash[:success] = "Task updated"
       redirect_to root_path
@@ -26,14 +25,12 @@ class TasksController < ApplicationController
   end
 
   def complete
-    @task = Task.find(params[:id])
     @task.complete!
     flash[:success] = "Task completed"
     redirect_to root_path
   end
 
   def destroy
-    @task = Task.find(params[:id])
     if @task.destroy
       flash[:success] = "Task has been deleted"
       redirect_to root_path
@@ -41,6 +38,9 @@ class TasksController < ApplicationController
   end
 
   private
+    def find_task
+      @task = Task.find(params[:id])
+    end
 
     def task_params
       params.require(:task).permit(:description, :quadrant)
