@@ -11,9 +11,11 @@
 </div>
 
 <ul>
-  <% @tasks.each do |task| %>
+  <% @uncompleted_tasks.each do |task| %>
     <li>
       <%= task.description %>(Q<%= task.quadrant %>)
+      <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+          method: :patch, data: { confirm: "Are you sure?" } %>
       <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
       <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
           method: :delete, data: { confirm: "Are you sure?" },

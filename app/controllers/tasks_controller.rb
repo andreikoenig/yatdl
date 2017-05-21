@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   def index
     @task = Task.new
-    @tasks = Task.all
+    @uncompleted_tasks = Task.where(time_completed: nil)
   end
 
   def create
@@ -23,6 +23,13 @@ class TasksController < ApplicationController
       flash.now[:danger] = "Task not updated"
       render :edit
     end
+  end
+
+  def complete
+    @task = Task.find(params[:id])
+    @task.complete!
+    flash[:success] = "Task completed"
+    redirect_to root_path
   end
 
   def destroy
