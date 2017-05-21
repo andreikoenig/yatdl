@@ -12,6 +12,12 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.description %>(Q<%= task.quadrant %>) <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %></li>
+    <li>
+      <%= task.description %>(Q<%= task.quadrant %>)
+      <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+      <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+          method: :delete, data: { confirm: "Are you sure?" },
+          class: "" %>
+    </li>
   <% end %>
 </ul>
