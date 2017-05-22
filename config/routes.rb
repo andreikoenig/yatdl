@@ -8,7 +8,4 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :tasks do
-  #   patch :complete, on: member
-  # end
 end
