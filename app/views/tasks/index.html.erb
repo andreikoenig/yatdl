@@ -1,18 +1,84 @@
-<div class='container'>
-  <h3>Tasks</h3>
+<h3 class="text-center">Tasks</h3>
+<!-- Quadrant View -->
+<div class="row">
+  <div class="col-md-6" id="quad1">
+    <h4>Do first</h4>
+    <ul>
+      <% @quad1_tasks.each do |task| %>
+        <li>
+          <%= task.description %>
+          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+              method: :patch, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+              method: :delete, data: { confirm: "Are you sure?" },
+              class: "" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-6" id="quad2">
+    <h4>Important Stuff</h4>
+    <% @quad2_tasks.each do |task| %>
+      <li>
+        <%= task.description %>
+        <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+            method: :patch, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+        <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+            method: :delete, data: { confirm: "Are you sure?" },
+            class: "" %>
+      </li>
+    <% end %>
+  </div>
+  <div class="col-md-6" id="quad3">
+    <h4>Delegate</h4>
+    <% @quad3_tasks.each do |task| %>
+      <li>
+        <%= task.description %>
+        <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+            method: :patch, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+        <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+            method: :delete, data: { confirm: "Are you sure?" },
+            class: "" %>
+      </li>
+    <% end %>
+  </div>
+  <div class="col-md-6" id="quad4">
+    <h4>Time Wasters</h4>
+    <% @quad4_tasks.each do |task| %>
+      <li>
+        <%= task.description %>
+        <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+            method: :patch, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+        <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+            method: :delete, data: { confirm: "Are you sure?" },
+            class: "" %>
+      </li>
+    <% end %>
+  </div>
 
+</div>
+<!-- /Quadrant View -->
+
+
+
+<hr>
   <div class="row">
     <%= form_for @task do |f| %>
       <%= f.label "Description" %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, autofocus: true %>
       <%= f.label "Quadrant" %>
       <%= f.select :quadrant, (1..4) %>
       <%= f.submit "Create Task" %>
     <% end %>
   </div>
 
+  <!-- <h3>Tasks</h3>
   <ul>
-    <% @uncompleted_tasks.each do |task| %>
+    <% @quad1_tasks.each do |task| %>
       <li>
         <%= task.description %>(Q<%= task.quadrant %>)
         <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
@@ -23,5 +89,4 @@
             class: "" %>
       </li>
     <% end %>
-  </ul>
-</div>
+  </ul> -->

@@ -2,7 +2,11 @@ class TasksController < ApplicationController
   before_action :find_task, only: [:edit, :update, :complete, :destroy]
   def index
     @task = Task.new
-    @uncompleted_tasks = Task.where(time_completed: nil)
+    uncompleted_tasks = Task.where(time_completed: nil)
+    @quad1_tasks = uncompleted_tasks.where(quadrant: 1)
+    @quad2_tasks = uncompleted_tasks.where(quadrant: 2)
+    @quad3_tasks = uncompleted_tasks.where(quadrant: 3)
+    @quad4_tasks = uncompleted_tasks.where(quadrant: 4)
   end
 
   def create

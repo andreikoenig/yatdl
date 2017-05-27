@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Updating tasks" do
   before do
-    @task = Task.create(description: "Task Description", quadrant: nil)
+    @task = Task.create(description: "Task Description", quadrant: 4)
   end
 
   scenario "a user successfully updates task" do

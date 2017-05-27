@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Completing Tasks' do
   before do
-    @task = Task.create(description: "Task Description", quadrant: nil)
+    @task = Task.create(description: "Task Description", quadrant: 1)
   end
 
   scenario 'user completes task' do
