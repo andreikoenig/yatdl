@@ -1,5 +1,10 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "tasks";
+
+body {
+  padding-top: 70px;
+}
 
 .navbar {
   font-size: 1rem;

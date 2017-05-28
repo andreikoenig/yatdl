@@ -1,3 +1,35 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.quadrant {
+  border: 2px solid grey;
+  margin: 5px;
+}
+
+.quadrant ul {
+  list-style: none;
+  min-height: 250px;
+}
+
+#quad1 {
+  background-color: #ffffe6;
+}
+
+#quad2 {
+  background-color: #eafaea;
+}
+
+#quad3 {
+  background-color: #e6e6ff;
+}
+
+#quad4 {
+  background-color: #f9e6ff;
+}
+
+.quadrant h4 {
+  text-align: center;
+  // min-height: 300px;
+  // min-width: 300px;
+}

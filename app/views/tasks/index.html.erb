@@ -1,8 +1,7 @@
-<h3 class="text-center">Tasks</h3>
 <!-- Quadrant View -->
-<div class="row">
-  <div class="col-md-6" id="quad1">
-    <h4>Do first</h4>
+<div class="row justify-content-center" id="top-row">
+  <div class="col-md-5 quadrant" id="quad1">
+    <h4>Urgent Stuff</h4>
     <ul>
       <% @quad1_tasks.each do |task| %>
         <li>
@@ -17,49 +16,56 @@
       <% end %>
     </ul>
   </div>
-  <div class="col-md-6" id="quad2">
+  <div class="col-md-5 quadrant" id="quad2">
     <h4>Important Stuff</h4>
-    <% @quad2_tasks.each do |task| %>
-      <li>
-        <%= task.description %>
-        <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-            method: :patch, data: { confirm: "Are you sure?" } %>
-        <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-        <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-            method: :delete, data: { confirm: "Are you sure?" },
-            class: "" %>
-      </li>
-    <% end %>
+    <ul>
+      <% @quad2_tasks.each do |task| %>
+        <li>
+          <%= task.description %>
+          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+              method: :patch, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+              method: :delete, data: { confirm: "Are you sure?" },
+              class: "" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
-  <div class="col-md-6" id="quad3">
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-5 quadrant" id="quad3">
     <h4>Delegate</h4>
-    <% @quad3_tasks.each do |task| %>
-      <li>
-        <%= task.description %>
-        <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-            method: :patch, data: { confirm: "Are you sure?" } %>
-        <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-        <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-            method: :delete, data: { confirm: "Are you sure?" },
-            class: "" %>
-      </li>
-    <% end %>
+    <ul>
+      <% @quad3_tasks.each do |task| %>
+        <li>
+          <%= task.description %>
+          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+              method: :patch, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+              method: :delete, data: { confirm: "Are you sure?" },
+              class: "" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
-  <div class="col-md-6" id="quad4">
+  <div class="col-md-5 quadrant" id="quad4">
     <h4>Time Wasters</h4>
-    <% @quad4_tasks.each do |task| %>
-      <li>
-        <%= task.description %>
-        <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-            method: :patch, data: { confirm: "Are you sure?" } %>
-        <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-        <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-            method: :delete, data: { confirm: "Are you sure?" },
-            class: "" %>
-      </li>
-    <% end %>
+    <ul>
+      <% @quad4_tasks.each do |task| %>
+        <li>
+          <%= task.description %>
+          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+              method: :patch, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+              method: :delete, data: { confirm: "Are you sure?" },
+              class: "" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
-
 </div>
 <!-- /Quadrant View -->
 
