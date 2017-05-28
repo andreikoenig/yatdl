@@ -33,3 +33,18 @@
   // min-height: 300px;
   // min-width: 300px;
 }
+
+ul.q_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.q_list li {
+  background: image-url("check_box_empty.png") no-repeat left top;
+  padding-left: 40px;
+  // padding-top: ;
+}
+// .check_box {
+//   margin-right: 10px;
+// }
