@@ -2,13 +2,20 @@
 <div class="row justify-content-center" id="top-row">
   <div class="col-md-5 quadrant" id="quad1">
     <h4>Urgent Stuff</h4>
+    <div class="form-group">
+      <%= form_for @task do |f| %>
+        <%= f.text_field :description, placeholder: "Task Description" %>
+        <%= hidden_field :task, :quadrant, value: 1 %>
+        <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
+      <% end %>
+    </div>
     <ul class="q_list">
       <% @quad1_tasks.each do |task| %>
         <li>
           <!-- <%= image_tag("check_box_empty.png", class: "check_box") %> -->
           <%= task.description %>
           <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch, data: { confirm: "Are you sure?" } %>
+              method: :patch %>
           <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
           <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
               method: :delete, data: { confirm: "Are you sure?" },
@@ -20,12 +27,19 @@
   </div>
   <div class="col-md-5 quadrant" id="quad2">
     <h4>Important Stuff</h4>
+    <div class="form-group">
+      <%= form_for @task do |f| %>
+        <%= f.text_field :description, placeholder: "Task Description" %>
+        <%= hidden_field :task, :quadrant, value: 2 %>
+        <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
+      <% end %>
+    </div>
     <ul class="q_list">
       <% @quad2_tasks.each do |task| %>
         <li>
           <%= task.description %>
           <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch, data: { confirm: "Are you sure?" } %>
+              method: :patch %>
           <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
           <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
               method: :delete, data: { confirm: "Are you sure?" },
@@ -39,12 +53,19 @@
 <div class="row justify-content-center">
   <div class="col-md-5 quadrant" id="quad3">
     <h4>Delegate</h4>
+    <div class="form-group">
+      <%= form_for @task do |f| %>
+        <%= f.text_field :description, placeholder: "Task Description" %>
+        <%= hidden_field :task, :quadrant, value: 3 %>
+        <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
+      <% end %>
+    </div>
     <ul class="q_list">
       <% @quad3_tasks.each do |task| %>
         <li>
           <%= task.description %>
           <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch, data: { confirm: "Are you sure?" } %>
+              method: :patch %>
           <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
           <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
               method: :delete, data: { confirm: "Are you sure?" },
@@ -56,12 +77,19 @@
   </div>
   <div class="col-md-5 quadrant" id="quad4">
     <h4>Time Wasters</h4>
+    <div class="form-group">
+      <%= form_for @task do |f| %>
+        <%= f.text_field :description, placeholder: "Task Description" %>
+        <%= hidden_field :task, :quadrant, value: 4 %>
+        <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
+      <% end %>
+    </div>
     <ul class="q_list">
       <% @quad4_tasks.each do |task| %>
         <li>
           <%= task.description %>
           <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch, data: { confirm: "Are you sure?" } %>
+              method: :patch %>
           <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
           <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
               method: :delete, data: { confirm: "Are you sure?" },
@@ -74,16 +102,6 @@
 </div>
 <!-- /Quadrant View -->
 
-<hr>
-  <div class="row">
-    <%= form_for @task do |f| %>
-      <%= f.label "Description" %>
-      <%= f.text_field :description %>
-      <%= f.label "Quadrant" %>
-      <%= f.select :quadrant, (1..4) %>
-      <%= f.submit "Create Task" %>
-    <% end %>
-  </div>
 
   <!-- <h3>Tasks</h3>
   <ul>
