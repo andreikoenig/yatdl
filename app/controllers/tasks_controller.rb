@@ -1,12 +1,17 @@
 class TasksController < ApplicationController
   before_action :find_task, only: [:edit, :update, :complete, :destroy]
+
   def index
     @task = Task.new
     uncompleted_tasks = Task.where(time_completed: nil)
-    @quad1_tasks = uncompleted_tasks.where(quadrant: 1)
-    @quad2_tasks = uncompleted_tasks.where(quadrant: 2)
-    @quad3_tasks = uncompleted_tasks.where(quadrant: 3)
-    @quad4_tasks = uncompleted_tasks.where(quadrant: 4)
+    @quad1_tasks = find_tasks_by_quadrant(uncompleted_tasks, 1)
+    @quad2_tasks = find_tasks_by_quadrant(uncompleted_tasks, 2)
+    @quad3_tasks = find_tasks_by_quadrant(uncompleted_tasks, 3)
+    @quad4_tasks = find_tasks_by_quadrant(uncompleted_tasks, 4)
+  end
+
+  def mind_dump
+
   end
 
   def create
@@ -48,5 +53,9 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:description, :quadrant)
+    end
+
+    def find_tasks_by_quadrant(tasks, quadrant)
+      tasks.select { |task| task.quadrant == quadrant}
     end
 end
