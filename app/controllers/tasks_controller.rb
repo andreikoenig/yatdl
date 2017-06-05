@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   end
 
   def mind_dump
-
+    @tasks = Task.where(time_completed: nil)
   end
 
   def create
