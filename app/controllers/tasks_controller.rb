@@ -14,6 +14,10 @@ class TasksController < ApplicationController
     @tasks = Task.where(time_completed: nil)
   end
 
+  def unassigned
+    @unassigned_tasks = Task.where(quadrant: nil)
+  end
+
   def create
     @task = Task.new(task_params)
     @task.save
