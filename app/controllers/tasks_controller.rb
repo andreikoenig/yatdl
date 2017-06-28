@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def index
     @task = Task.new
     uncompleted_tasks = Task.where(time_completed: nil)
+    # @tasks_by_quadrant = uncompleted_tasks.group_by(&:quadrant)
     @quad1_tasks = find_tasks_by_quadrant(uncompleted_tasks, 1)
     @quad2_tasks = find_tasks_by_quadrant(uncompleted_tasks, 2)
     @quad3_tasks = find_tasks_by_quadrant(uncompleted_tasks, 3)

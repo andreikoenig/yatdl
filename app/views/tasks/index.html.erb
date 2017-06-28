@@ -13,13 +13,19 @@
       <% @quad1_tasks.each do |task| %>
         <li>
           <!-- <%= image_tag("check_box_empty.png", class: "check_box") %> -->
+          <div class="menu">
+            ̿
+            <div class="menu-options">
+              <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
+                  method: :patch %>
+              <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
+              <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
+                  method: :delete, data: { confirm: "Are you sure?" },
+                  class: "" %>
+
+            </div>
+          </div>
           <%= task.description %>
-          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch %>
-          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-              method: :delete, data: { confirm: "Are you sure?" },
-              class: "" %>
           <hr>
         </li>
       <% end %>
@@ -37,6 +43,7 @@
     <ul class="q_list">
       <% @quad2_tasks.each do |task| %>
         <li>
+          [<span class="glyphicon glyphicon-save"></span>]
           <%= task.description %>
           <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
               method: :patch %>

@@ -49,3 +49,21 @@ ul.q_list li {
 // .check_box {
 //   margin-right: 10px;
 // }
+
+.menu {
+  float: right;
+  position: relative;
+
+  .menu-options {
+    display: none;
+    background: white;
+    padding: 1em 1.5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &:hover .menu-options {
+    display: block;
+  }
+}
