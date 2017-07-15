@@ -28,6 +28,10 @@
   background-color: #f9e6ff;
 }
 
+.form-group {
+  margin-left: 40px;
+}
+
 .quadrant h4 {
   text-align: center;
   padding-bottom: 15px;
@@ -42,7 +46,7 @@ ul.q_list {
 }
 
 ul.q_list li {
-  background: image-url("check_box_empty.png") no-repeat left top;
+  // background: image-url("check_box_empty.png") no-repeat left top;
   padding-left: 40px;
   // padding-top: ;
 }
@@ -65,5 +69,23 @@ ul.q_list li {
 
   &:hover .menu-options {
     display: block;
+  }
+}
+
+.fa-square-o {
+  margin-right: 0.5em;
+  // margin-bottom: -1em;
+}
+
+.task {
+  .icon {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .description {
+    margin-top: 0.25em;
+    display: inline-block;
+    vertical-align: top;
   }
 }
