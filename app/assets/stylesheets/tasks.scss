@@ -1,7 +1,11 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.task-description {
+  border: 1px solid blue;
+  display: inline-block;
+  width: 50%;
+}
 .quadrant {
   border: 2px solid grey;
   margin: 5px;
@@ -54,6 +58,10 @@ ul.q_list li {
 //   margin-right: 10px;
 // }
 
+.task a:hover {
+  text-decoration: none;
+}
+
 .menu {
   float: right;
   position: relative;
@@ -73,7 +81,7 @@ ul.q_list li {
 }
 
 .fa-square-o {
-  margin-right: 0.5em;
+  // margin-right: 0.5em;
   // margin-bottom: -1em;
 }
 
@@ -88,4 +96,11 @@ ul.q_list li {
     display: inline-block;
     vertical-align: top;
   }
+}
+
+.options {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  border: 2px solid red;
 }

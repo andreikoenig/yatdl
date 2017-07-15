@@ -45,16 +45,20 @@
       <% @quad2_tasks.each do |task| %>
         <li class="task">
           <!-- <%= fa_icon "square-o", class: "fa-2x" %> -->
-          <div class="icon"><%= fa_icon "square-o", class: "fa-2x" %></div>
-          <%= task.description %>
-          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch %>
-          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-              method: :delete, data: { confirm: "Are you sure?" },
-              class: "" %>
-          <div class="icon"><%= fa_icon "pencil", class: "fa-lg" %></div>
-          <div class="icon"><%= fa_icon "trash-o", class: "fa-lg" %></div>
+          <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
+            method: :patch do %>
+            <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+            <!-- <div class="icon"><%= fa_icon "square-o", class: "fa-2x" %></div> -->
+          <% end %>
+          <div class="task-description"><%= task.description %></div>
+          <div class="options">
+            <%= link_to edit_task_path(task), id: "edit_task_#{task.id}" do %>
+              <div class="icon"><%= fa_icon "pencil", class: "fa-lg" %></div>
+            <% end %>
+            <%= link_to task_path(task), id: "delete_task_#{task.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "" do %>
+              <div class="icon"><%= fa_icon "trash-o", class: "fa-lg" %></div>
+            <% end %>
+          </div>
           <hr>
         </li>
       <% end %>
