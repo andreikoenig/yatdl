@@ -75,18 +75,30 @@
         <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
       <% end %>
     </div>
-    <ul class="q_list">
+    <ul class="flex-ul">
       <% @quad3_tasks.each do |task| %>
-        <li>
-          <%= task.description %>
-          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch %>
-          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-              method: :delete, data: { confirm: "Are you sure?" },
-              class: "" %>
-          <hr>
+        <li class="task">
+          <div class="flexc">
+            <div>
+              <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
+                method: :patch do %>
+                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+              <% end %>
+            </div>
+            <div class="flexdescription"><%= task.description %></div>
+            <div class="flexoptions">
+              <%= link_to edit_task_path(task), id: "edit_task_#{task.id}" do %>
+                <div class="icon"><%= fa_icon "pencil", class: "fa-lg" %></div>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to task_path(task), id: "delete_task_#{task.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "" do %>
+                <div class="icon"><%= fa_icon "trash-o", class: "fa-lg" %></div>
+              <% end %>
+            </div>
+          </div>
         </li>
+        <hr>
       <% end %>
     </ul>
   </div>

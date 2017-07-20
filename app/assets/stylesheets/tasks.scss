@@ -1,10 +1,59 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul.flex-ul {
+  padding: 0 0 0 0;
+}
+
+.flexdescription {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.flexc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexc > div {
+}
+
+.flexbox {
+  margin-right: auto;
+}
+
+.flexoptions {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+ul.q3test {
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-between;
+  background-color: lightyellow;
+  list-style: none;
+  width: 100%;
+}
+
+li.q3test {
+  flex: 1 1 100%;
+  text-align: center;
+  outline: 1px dashed;
+}
+
+li.q3test.checkbox {
+  
+}
+
+i.fa-square-o.icontest {
+  border: 3px solid black;
+}
+
 .task-description {
   border: 1px solid blue;
   display: inline-block;
-  width: 50%;
+  width: 75%;
 }
 .quadrant {
   border: 2px solid grey;
@@ -33,7 +82,7 @@
 }
 
 .form-group {
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
 .quadrant h4 {
@@ -51,7 +100,7 @@ ul.q_list {
 
 ul.q_list li {
   // background: image-url("check_box_empty.png") no-repeat left top;
-  padding-left: 40px;
+  // padding-left: 40px;
   // padding-top: ;
 }
 // .check_box {
@@ -88,14 +137,22 @@ ul.q_list li {
 .task {
   .icon {
     display: inline-block;
-    vertical-align: top;
+    // vertical-align: top;
   }
 
-  .description {
-    margin-top: 0.25em;
-    display: inline-block;
-    vertical-align: top;
-  }
+  // .description {
+  //   margin-top: 0.25em;
+  //   display: inline-block;
+  //   vertical-align: top;
+  // }
+}
+
+.task a:link {
+  color: black;
+}
+
+.task a:visited {
+  color: black;
 }
 
 .options {
