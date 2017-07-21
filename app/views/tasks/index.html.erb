@@ -16,7 +16,10 @@
             <div>
               <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
                 method: :patch do %>
-                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                <span class='checkbox-toggle'>
+                  <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                  <i class="fa fa-check-square-o fa-2x icon" aria-hidden="true"></i>
+                </span>
               <% end %>
             </div>
             <div class="flexdescription"><%= task.description %></div>
@@ -52,7 +55,10 @@
             <div>
               <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
                 method: :patch do %>
-                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                <span class='checkbox-toggle'>
+                  <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                  <i class="fa fa-check-square-o fa-2x icon" aria-hidden="true"></i>
+                </span>
               <% end %>
             </div>
             <div class="flexdescription"><%= task.description %></div>
@@ -90,7 +96,10 @@
             <div>
               <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
                 method: :patch do %>
-                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                <span class='checkbox-toggle'>
+                  <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                  <i class="fa fa-check-square-o fa-2x icon" aria-hidden="true"></i>
+                </span>
               <% end %>
             </div>
             <div class="flexdescription"><%= task.description %></div>
@@ -126,7 +135,10 @@
             <div>
               <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
                 method: :patch do %>
-                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                <span class='checkbox-toggle'>
+                  <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+                  <i class="fa fa-check-square-o fa-2x icon" aria-hidden="true"></i>
+                </span>
               <% end %>
             </div>
             <div class="flexdescription"><%= task.description %></div>

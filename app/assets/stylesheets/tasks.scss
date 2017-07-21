@@ -5,6 +5,15 @@ ul.flex-ul {
   padding: 0 0 0 0;
 }
 
+.checkbox-toggle > .fa + .fa,
+.checkbox-toggle:hover > .fa {
+  display: none;
+}
+
+.checkbox-toggle:hover > .fa + .fa {
+  display: inherit;
+}
+
 .flexdescription {
   margin-left: 10px;
   margin-right: 5px;
