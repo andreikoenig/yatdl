@@ -1,7 +1,7 @@
 <!-- Quadrant View -->
 <div class="row justify-content-center" id="top-row">
   <div class="col-md-5 quadrant" id="quad1">
-    <h4>Urgent Stuff</h4>
+    <h4>Urgent</h4>
     <div class="form-group">
       <%= form_for @task do |f| %>
         <%= f.text_field :description, placeholder: "Task Description" %>
@@ -9,31 +9,35 @@
         <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
       <% end %>
     </div>
-    <ul class="q_list">
+    <ul class="flex-ul">
       <% @quad1_tasks.each do |task| %>
         <li class="task">
-          <!-- <%= image_tag("check_box_empty.png", class: "check_box") %> -->
-          <div class="menu">
-            <div class="icon"><%= fa_icon "bars", class: "fa-lg" %></div>
-            <div class="menu-options">
-              <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-                  method: :patch %>
-              <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-              <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-                  method: :delete, data: { confirm: "Are you sure?" },
-                  class: "" %>
-
+          <div class="flexc">
+            <div>
+              <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
+                method: :patch do %>
+                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+              <% end %>
+            </div>
+            <div class="flexdescription"><%= task.description %></div>
+            <div class="flexoptions">
+              <%= link_to edit_task_path(task), id: "edit_task_#{task.id}" do %>
+                <div class="icon"><%= fa_icon "pencil", class: "fa-lg" %></div>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to task_path(task), id: "delete_task_#{task.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "" do %>
+                <div class="icon"><%= fa_icon "trash-o", class: "fa-lg" %></div>
+              <% end %>
             </div>
           </div>
-          <div class="icon"><%= fa_icon "square-o", class: "fa-2x" %></div>
-          <div class="description"><%= task.description %></div>
-          <hr>
         </li>
+        <hr>
       <% end %>
     </ul>
   </div>
   <div class="col-md-5 quadrant" id="quad2">
-    <h4>Important Stuff</h4>
+    <h4>Important</h4>
     <div class="form-group">
       <%= form_for @task do |f| %>
         <%= f.text_field :description, placeholder: "Task Description" %>
@@ -41,28 +45,32 @@
         <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
       <% end %>
     </div>
-    <ul class="q_list">
+    <ul class="flex-ul">
       <% @quad2_tasks.each do |task| %>
         <li class="task">
-          <!-- <%= fa_icon "square-o", class: "fa-2x" %> -->
-          <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
-            method: :patch do %>
-            <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
-            <!-- <div class="icon"><%= fa_icon "square-o", class: "fa-2x" %></div> -->
-          <% end %>
-          <div class="task-description"><%= task.description %></div>
-          <div class="options">
-            <%= link_to edit_task_path(task), id: "edit_task_#{task.id}" do %>
-              <div class="icon"><%= fa_icon "pencil", class: "fa-lg" %></div>
-            <% end %>
-            <%= link_to task_path(task), id: "delete_task_#{task.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "" do %>
-              <div class="icon"><%= fa_icon "trash-o", class: "fa-lg" %></div>
-            <% end %>
+          <div class="flexc">
+            <div>
+              <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
+                method: :patch do %>
+                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+              <% end %>
+            </div>
+            <div class="flexdescription"><%= task.description %></div>
+            <div class="flexoptions">
+              <%= link_to edit_task_path(task), id: "edit_task_#{task.id}" do %>
+                <div class="icon"><%= fa_icon "pencil", class: "fa-lg" %></div>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to task_path(task), id: "delete_task_#{task.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "" do %>
+                <div class="icon"><%= fa_icon "trash-o", class: "fa-lg" %></div>
+              <% end %>
+            </div>
           </div>
-          <hr>
         </li>
+        <hr>
       <% end %>
-    </ul class="q_list">
+    </ul>
   </div>
 </div>
 <div class="row justify-content-center">
@@ -111,21 +119,34 @@
         <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
       <% end %>
     </div>
-    <ul class="q_list">
+    <ul class="flex-ul">
       <% @quad4_tasks.each do |task| %>
-        <li>
-          <%= task.description %>
-          <%= link_to "Complete", complete_task_path(task), id: "complete_task_#{task.id}",
-              method: :patch %>
-          <%= link_to "Edit", edit_task_path(task), id: "edit_task_#{task.id}" %>
-          <%= link_to "Delete", task_path(task), id: "delete_task_#{task.id}",
-              method: :delete, data: { confirm: "Are you sure?" },
-              class: "" %>
-          <hr>
+        <li class="task">
+          <div class="flexc">
+            <div>
+              <%= link_to complete_task_path(task), id: "complete_task_#{task.id}",
+                method: :patch do %>
+                <i class="fa fa-square-o fa-2x icon" aria-hidden="true"></i>
+              <% end %>
+            </div>
+            <div class="flexdescription"><%= task.description %></div>
+            <div class="flexoptions">
+              <%= link_to edit_task_path(task), id: "edit_task_#{task.id}" do %>
+                <div class="icon"><%= fa_icon "pencil", class: "fa-lg" %></div>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to task_path(task), id: "delete_task_#{task.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "" do %>
+                <div class="icon"><%= fa_icon "trash-o", class: "fa-lg" %></div>
+              <% end %>
+            </div>
+          </div>
         </li>
+        <hr>
       <% end %>
     </ul>
   </div>
+
 </div>
 <!-- /Quadrant View -->
 
