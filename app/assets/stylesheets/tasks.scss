@@ -4,15 +4,24 @@
 ul.flex-ul {
   padding: 0 0 0 0;
 }
+.checkbox-toggle > i {
+  width: 25px;
+  display: inline-block;
+}
 
-.checkbox-toggle > .fa + .fa,
-.checkbox-toggle:hover > .fa {
+.checkbox-toggle > i.fa-check-square-o {
   display: none;
 }
 
-.checkbox-toggle:hover > .fa + .fa {
-  display: inherit;
+.checkbox-toggle:hover > i.fa-square-o {
+  display: none;
 }
+
+
+.checkbox-toggle:hover > i.fa-check-square-o {
+  display: inline-block;
+}
+
 
 .flexdescription {
   margin-left: 10px;
@@ -49,10 +58,6 @@ li.q3test {
   flex: 1 1 100%;
   text-align: center;
   outline: 1px dashed;
-}
-
-li.q3test.checkbox {
-  
 }
 
 i.fa-square-o.icontest {
