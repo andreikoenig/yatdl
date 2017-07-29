@@ -7,6 +7,7 @@ RSpec.feature "Display existing tasks in mind dump" do
 
     visit "/"
     click_link "Mind Dump"
+
     expect(page).to have_content("List everything you have to do here.")
     expect(page).to have_content("#{@task1.description} (1)")
     expect(page).to have_content("#{@task2.description} (Unassigned)")
@@ -19,10 +20,9 @@ RSpec.feature "Display existing tasks in mind dump" do
     within("div.mind-dump") do
       fill_in "task_description", with: "Sample Mind Dump Task"
       click_button "Create Task"
-
-      # DOES NOT PASS
-      # expect(page).to have_content("Sample Mind Dump Task (Unassigned)")
-      expect(page.current_path).to eq(mind_dump_path)
     end
+
+    expect(page.current_path).to eq(mind_dump_path)
+    expect(page).to have_content("Sample Mind Dump Task (Unassigned)")
   end
 end
