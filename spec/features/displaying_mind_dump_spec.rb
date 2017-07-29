@@ -10,7 +10,7 @@ RSpec.feature "Display existing tasks in mind dump" do
 
     expect(page).to have_content("List everything you have to do here.")
     expect(page).to have_content("#{@task1.description} (1)")
-    expect(page).to have_content("#{@task2.description} (Unassigned)")
+    expect(page).to have_content("#{@task2.description} (unassigned)")
   end
 
   scenario "a user creates a new task from mind dump page" do
@@ -23,6 +23,6 @@ RSpec.feature "Display existing tasks in mind dump" do
     end
 
     expect(page.current_path).to eq(mind_dump_path)
-    expect(page).to have_content("Sample Mind Dump Task (Unassigned)")
+    expect(page).to have_content("Sample Mind Dump Task (unassigned)")
   end
 end

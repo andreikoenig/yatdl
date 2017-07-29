@@ -12,10 +12,12 @@
 
   <ul>
     <% @unassigned_tasks.each do |task| %>
-      <li><%= "#{task.description} (Unassigned)" %></li>
+      <li><%= "#{task.description} (unassigned)" %></li>
+      <hr>
     <% end %>
     <% @assigned_tasks.each do |task| %>
       <li><%= "#{task.description} (#{task.quadrant})" %></li>
+      <hr>
     <% end %>
   </ul>
 </div>
