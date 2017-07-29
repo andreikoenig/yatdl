@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yatdl</title>
-    <%= csrf_meta_tags %>
+    <title>Yatdl</title> <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -23,6 +22,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link <%= 'active' if params[:action] == "mind_dump" %>" href="mind_dump">Mind Dump</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+            </li class="nav-item">
+            <li>
+              <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", method: :delete %>
             </li>
             <%# <li class="nav-item"> %>
             <%#   <a class="nav-link" href="unassigned">Unassigned Tasks(# of unassigned heregs)</a> %>
