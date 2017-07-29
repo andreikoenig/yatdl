@@ -12,7 +12,10 @@ class TasksController < ApplicationController
   end
 
   def mind_dump
-    @tasks = Task.where(time_completed: nil)
+    all_tasks = Task.where(time_completed: nil)
+    @assigned_tasks = all_tasks.reject {|task| task.quadrant.nil? }
+    @unassigned_tasks = find_tasks_by_quadrant(all_tasks, nil)
+    @task = Task.new
   end
 
   def unassigned
@@ -22,7 +25,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def edit

@@ -1,10 +1,21 @@
-  <h1 class="text-center">This is Mind Dump Page.</h1><br>
-  <h3 class="text-center">List everything you have to do here.</h3>
+<h1 class="text-center">This is Mind Dump Page.</h1><br>
+<h3 class="text-center">List everything you have to do here.</h3>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <% quadrant = task.quadrant  %>
-    <% quadrant ||= "unassigned" %>
-    <li><%= "#{task.description} (#{quadrant})" %></li>
-  <% end %>
-</ul>
+<div class="mind-dump">
+  <div class="form-group">
+      <%= form_for @task do |f| %>
+        <%= f.text_field :description, placeholder: "Task Description", autofocus: true %>
+        <%= f.select :quadrant, [["Unassigned",nil],["Urgent",1],["Important",2],["Delegate",3],["Time Wasters",4]], selected: nil %>
+        <%= f.submit "Create Task", class: "btn btn-primary btn-sm" %>
+      <% end %>
+    </div>
+
+  <ul>
+    <% @unassigned_tasks.each do |task| %>
+      <li><%= "#{task.description} (Unassigned)" %></li>
+    <% end %>
+    <% @assigned_tasks.each do |task| %>
+      <li><%= "#{task.description} (#{task.quadrant})" %></li>
+    <% end %>
+  </ul>
+</div>
