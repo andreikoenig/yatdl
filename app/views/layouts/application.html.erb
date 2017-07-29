@@ -15,18 +15,18 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-        <a class="navbar-brand" href="#">YATDL</a>
+        <a class="navbar-brand" href="/">YATDL</a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">To-Do List<span class="sr-only">(current)</span></a>
+            <li class="nav-item <%= 'active' if params[:action] == "index" %>">
+              <a class="nav-link" href="/">To-Do List</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="mind_dump">Mind Dump</a>
+              <a class="nav-link <%= 'active' if params[:action] == "mind_dump" %>" href="mind_dump">Mind Dump</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="unassigned">Unassigned Tasks(# of unassigned heregs)</a>
-            </li>
+            <%# <li class="nav-item"> %>
+            <%#   <a class="nav-link" href="unassigned">Unassigned Tasks(# of unassigned heregs)</a> %>
+            <%# </li> %>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
             </li>
